@@ -1,0 +1,44 @@
+ul{
+  padding:0px;
+  margin:0px;
+  list-style:none;
+}
+
+
+a, a:hover{
+  text-decoration: none !important;
+}
+a:hover{
+  color:#f0a52b;
+}
+:hover,:focus{
+  outline: none !important;
+}
+.iptext_adm{
+	display: block;
+	padding: 15px;
+	width: 100%;
+	max-width: 850px;
+	margin: 0px 0px 0px 0px;
+}
+.tab-content{
+	display: none;
+}
+
+.tab-content.current{
+	display: block;
+	-webkit-animation: fadeUptd  0.3s ease-in ;
+	-moz-animation: fadeUptd  0.3s ease-in ;
+}
+.nav-tab-wrapper a.nav-tab-active{
+	background:#006acd !important;
+	color:#fff !important;
+}
+
+.nav-tab-wrapper li , .nav-tab-wrapper li a{
+	margin:0px !important;
+}
+.avatar img{
+	max-width: 120px;
+	height: 70px;
+}
