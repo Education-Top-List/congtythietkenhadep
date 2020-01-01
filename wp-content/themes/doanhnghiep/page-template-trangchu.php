@@ -10,57 +10,84 @@ get_header();
 			<div class="content_left">
 				<div class="content_post_admin">
 					<?php 
-		$content_post = get_post($my_postid);
-		$content = $content_post->post_content;
-		$content = apply_filters('the_content', $content);
-		$content = str_replace(']]>', ']]&gt;', $content);
-		echo $content;
-		?>
-	</div>		
+					$content_post = get_post($my_postid);
+					$content = $content_post->post_content;
+					$content = apply_filters('the_content', $content);
+					$content = str_replace(']]>', ']]&gt;', $content);
+					echo $content;
+					?>
+				</div>		
 
-	<div class="our_products">
-		<div class="container">
-			<?php 
-			if(get_locale() == 'en_US'){?> 
-				<h2 class="title_tg_top"><?php echo get_cat_name('15');?></h2>
-		<?php }  else if(get_locale() == 'vi'){ ?><h2 class="title_tg_top"><?php echo get_cat_name('13');?></h2> <?php } ?>
-		<div class="row">
-			<?php 
-			$arg_cmt_post_q = array(
-				'posts_per_page' => 6,
-				'orderby' => 'post_date',
-				'order' => 'DESC',
-				'post_type' => 'post',
-				'post_status' => 'publish',
-				'cat' => 13
-			);
-			$cmt_post_q = new WP_Query();
-			$cmt_post_q->query($arg_cmt_post_q);
-			?>
-			<?php if(have_posts()) : ?>
-				<ul>
-					<?php
-					while ($cmt_post_q->have_posts()) : $cmt_post_q->the_post(); ?>
-						<li class="col-sm-4">
-							<div class="post_cmt_wrapper ">
-								<div class="wrap_thumb">
-									<?php  $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );  ?>
-									<figure class="thumbnail" style="background:url('<?php echo $image[0]; ?>');"> 
-										<a href="<?php the_permalink();?>"></a>
-									</figure>	
-								</div>
-								<h3><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a> </h3>
 
-							</div>
-						</li>
-					<?php endwhile; ?>
-				<?php endif; ?> 
-			</ul>
-		</div>
-	</div>
-</div>
-</div><!-- content_left -->
-</div>
-</div>
-</div>
-<?php get_footer(); ?>
+				<?php    
+				$parent  = get_categories(array('parent'=>0)); 
+				foreach ( $parent as $category ) {
+					$args = array(
+						'cat' => $category->term_id,
+						'post_type' => 'post',
+						'posts_per_page' => '4',
+					);
+					$query = new WP_Query( $args );
+
+					if ( $query->have_posts() ) { ?>
+
+						<div class="listing">
+							<?php  $catgory_id = get_cat_ID($category->name);
+							$category_link = get_category_link( $catgory_id );
+
+							?>
+							<div class="list_subcat">
+								<h2><a href="<?php echo esc_url( $category_link ); ?>" ><?php echo $category->name; ?></a></h2>
+
+								<?php  
+								$get_children_cats = array(
+                    'child_of' => $catgory_id  //get children of this parent using the catID variable from earlier
+                );
+
+                $child_cats = get_categories( $get_children_cats );//get children of parent category
+                ?>
+                <ul>
+                	<?php
+                	foreach( $child_cats as $child_cat ){
+                        //for each child category, get the ID
+                		$childID = $child_cat->cat_ID;
+
+                        //for each child category, give us the link and name
+                		echo '<li data-tab="tab-'. $child_cat->cat_ID .'"><a href=" ' . get_category_link( $childID ) . ' ">' . $child_cat->name . '</a></li>';
+                	}
+                	?>
+                </ul>
+                <?php
+                foreach( $child_cats as $child_cat ){
+                        //for each child category, get the ID
+                	$childID = $child_cat->cat_ID;
+                	?>
+                	<div id="tab-<?php echo $childID; ?>" class="tab-content">
+                		<ul>
+                			<?php
+                			$query = new WP_Query( array( 'cat'=> $childID, 'posts_per_page'=>2 ) );
+                			?>
+
+                			<?php
+                			while( $query->have_posts() ):$query->the_post();
+                				echo '<li><a href="'.get_the_permalink().'">'.get_the_title().'</a></li>';
+                			endwhile;
+                			?>
+                		</ul>
+                	</div>
+                <?php } ?>
+            </div>
+        </div>
+                     <?php } // end if
+                     wp_reset_postdata();
+                 }
+                 ?>
+
+
+
+
+             </div><!-- content_left -->
+         </div>
+     </div>
+ </div>
+ <?php get_footer(); ?>
