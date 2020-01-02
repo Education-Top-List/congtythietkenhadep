@@ -1996,6 +1996,22 @@ line-height: 23px;
 /* end page-template-page-template-lienhe */
 
 /* css rau*/
+.form_suggest{
+    background: url(../images/hand_write.jpg) no-repeat;
+    padding: 5em 0em;
+    background-size: cover;
+    position: relative;
+}
+.form_suggest::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: rgba(0,0,0,0.7);
+    z-index: 0;
+}
 .list_building_idx .item_list_building_idx{
      margin:0px 0px 50px 0px;
 }
@@ -2007,7 +2023,10 @@ line-height: 23px;
      line-height: 23px;
      color: #000;
 }
-#procedure, #movic_design , .loop_building{
+#procedure{
+     padding: 7em 0em 7em 0em;
+}
+ #movic_design , .loop_building{
      padding: 70px 0px;
 }
 #procedure .panel-layout>.panel-grid:nth-child(2){
@@ -2049,7 +2068,7 @@ line-height: 23px;
      text-align: center;
      text-transform: uppercase;
      font-weight: 700;
-     margin: 0px 0px 50px 0px;
+     margin: 0px 0px 60px 0px;
      font-size: 28px;
      line-height: 32px;
 }
@@ -2087,6 +2106,13 @@ line-height: 23px;
 }
 .tabs_toggle ul li .thumbnail {
     height: 230px;
+}
+.tabs_toggle ul li .thumbnail a{
+     position: absolute;
+     top:0px;
+     left: 0px;
+     width: 100%;
+     height: 100%;
 }
 .tab-content{
      display: none;
@@ -2140,6 +2166,7 @@ line-height: 23px;
       color:#fff;
       padding: 10px 15px;
       display: inline-block;
+      font-size: 15px;
 }
 .page-template-page-template-lienhe .g_content .panel-layout>.panel-grid>.panel-grid-cell:nth-child(1) ul li{
      font-size: 15px;
@@ -2158,31 +2185,68 @@ line-height: 23px;
 .our_products .row ul>li:nth-child(3n+1){
      clear: both;
 }
- [class*="form_"] {
+p:empty{
+     display: none !important;
+}
+
+ .form_tuvan {
     margin:0px -15px;
+    position: relative;
+    z-index: 2;
 }
- [class*="form_"] label{
+.form_tuvan .short_text{
+     display: table;
+     margin: 0px auto 30px auto;
+}
+.form_tuvan .short_text h3{
+         color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0px 0px 20px 0px;
+    font-size: 28px;
+    line-height: 32px;
+}
+.form_tuvan .short_text p{
+     color:#fff;
+     text-align: center;
+     font-size: 15px;
+     line-height: 23px;
+}
+ .form_tuvan label{
     display: block;
+    color:#fff;
+    font-size: 15px;
+    line-height: 24px;
+    margin: 0px 0px 8px 0px;
 }
- [class*="form_"] textarea ,  [class*="form_"] input, 
- [class*="form_"] select{
+ .form_tuvan textarea ,  .form_tuvan input, 
+ .form_tuvan select{
     width: 100%;
     padding: 10px 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    background: #ececec;
+    border: 1px solid #fff;
+    background: none;
+    color: #fff;
 }
-
- [class*="form_"] input[type="submit"]{
+.form_tuvan select option {
+    background: #585858;
+    color: #fff;
+}
+.form_tuvan textarea {
+     height: 140px;
+     resize: none;
+}
+ .form_tuvan input[type="submit"]{
     padding: 13px 20px;
-    background-image: linear-gradient(to left, #e02229 0%, #e02229 50%, #e48a8d 50%, #e02229 );
+    background-image: linear-gradient(to left, #f36f21 0%, #f36f21  50%, #ffa772 50%, #f36f21 );
     background-position: 100% 0;
     background-size: 200% 100%;
     transition: all 0.3s;
     color: #fff;
     border-radius: 5px;
     display: table;
-    margin: 20px auto;
+    margin: 20px auto 0px auto;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 16px;
@@ -2190,15 +2254,40 @@ line-height: 23px;
     border: none;
     max-width: 200px;
 }
- [class*="form_"]>.col-sm-6:nth-child(2n+1){
+.form_tuvan input[type="submit"]:hover{
+     background-position: 0 0; 
+}
+ .form_tuvan>.col-sm-6:nth-child(2n+1){
     clear: both;
 }
+.wpcf7 .form_tuvan .ajax-loader{
+         position: absolute;
+         left: 0px;
+         right: 0px;
+         margin: 0px auto;
+         text-align: center;
+         width: 28px;
+         height: 28px;
+         background-repeat: no-repeat;
+}
+
 div.wpcf7-response-output{
     margin:10px auto !important ;
     text-align: center !important;
 }
 div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
-    border:2px solid red !important;
+    border: 1px solid #fff !important;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    margin: 25px 0px 0px 0px !important;
+    padding: 10px !important;
+    font-size: 15px;
+}
+.form_tuvan span.wpcf7-not-valid-tip {
+    color: #fff;
+    margin:5px 0px 0px 0px;
+    font-size: 13px;
 }
 #loader {
     position: fixed;
