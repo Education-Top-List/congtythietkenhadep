@@ -50,19 +50,6 @@
 						<h2><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h2>
 					<?php } ?>
 				</div>
-				<?php if(get_option('email_hd') || get_option('phone_hd')){ ?>
-					<div class="contact_hd">
-						<ul>
-							<li><a href="mailto:<?php echo get_option('email_hd'); ?>"><?php echo get_option('email_hd'); ?></a></li>
-							<li><a href="tel:<?php echo get_option('phone_hd'); ?>"><?php echo get_option('phone_hd'); ?></a></li>
-						</ul>
-					</div>
-				<?php } ?>
-				
-			</div>
-		</div>
-		<div class="middle_header sticky">
-			<div class="container">
 				<nav class="nav nav_primary">
 					<?php 
 					$args = array('theme_location' => 'primary');

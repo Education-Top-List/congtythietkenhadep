@@ -209,14 +209,20 @@ jQuery(document).ready(function(){
  		 }
  		});
 			$(window).load(function(){
-	$('#loader').fadeOut(500);
-});
+				$('#loader').fadeOut(500);
+			});
 			var width = jQuery(window).width();
 			if(width>1200){
-	
+
 				new WOW().init();
 			}
-			jQuery('.site-lang>li:nth-child(2) a').click(function(e){
-				e.preventDefault();
-			});
+			
+			jQuery('.tabs_toggle>.tab-content:first-child,.list_subcat ul>li:first-child ').addClass('current');
+			$('.list_subcat ul li').click(function(){
+				var tab_id = $(this).attr('data-tab');
+				$(this).addClass('current');
+				$(this).siblings().removeClass('current');
+				$(this).parents('.list_subcat').siblings('.tabs_toggle').find('.tab-content').removeClass('current');
+				$("#"+tab_id).addClass('current');
+			}).find('a').click(function(e){e.preventDefault();});
 		});
