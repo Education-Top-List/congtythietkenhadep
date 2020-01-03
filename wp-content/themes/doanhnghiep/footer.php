@@ -19,7 +19,7 @@
 		<?php
 		$args = array(
 			'post_type' => 'page',
-          'post__in' => array(74) //list of page_ids
+          'post__in' => array(135) //list of page_ids
       );
 		$page_query = new WP_Query( $args );
 		if( $page_query->have_posts() ) :

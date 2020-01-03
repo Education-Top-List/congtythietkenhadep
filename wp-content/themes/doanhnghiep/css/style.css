@@ -36,8 +36,8 @@
      max-width: 100%;
      height: auto;
 }
-.textwidget p:empty {
-  display: none;
+p:empty {
+  display: none !important;
 }
  .thumbnail{
      overflow: hidden;
@@ -881,12 +881,11 @@ position: relative;
 
 /* metaslider */
 .home .metaslider  .flex-control-nav{
-  bottom: 45px;
-  max-width: 1140px;
+  bottom: 35px;
   left: 0px;
   right: 0px;
   margin: 0px auto;
-  text-align: right;
+  text-align: center;
 }
 .home .metaslider  .flex-control-nav li a{
   background: #fff;
@@ -895,7 +894,7 @@ position: relative;
   text-align: left;
 }
 .home .metaslider  .flex-control-paging li a.flex-active{
-  background: #ffa500;
+  background: rgb(241, 129, 63);
 }
 .metaslider .flexslider .flex-direction-nav li {
   margin: -20px 0px 0px 0px;
@@ -2013,7 +2012,8 @@ line-height: 23px;
     z-index: 0;
 }
 .list_building_idx .item_list_building_idx{
-     margin:0px 0px 50px 0px;
+     margin: 0px;
+     padding: 70px 0px;
 }
 .flexslider{
      margin:0px !important;
@@ -2026,8 +2026,11 @@ line-height: 23px;
 #procedure{
      padding: 7em 0em 7em 0em;
 }
- #movic_design , .loop_building{
+ #movic_design{
      padding: 70px 0px;
+}
+.list_building_idx>.item_list_building_idx:nth-child(2n){
+     background: #f5f5f5;
 }
 #procedure .panel-layout>.panel-grid:nth-child(2){
      max-width: 800px;
@@ -2185,9 +2188,7 @@ line-height: 23px;
 .our_products .row ul>li:nth-child(3n+1){
      clear: both;
 }
-p:empty{
-     display: none !important;
-}
+
 
  .form_tuvan {
     margin:0px -15px;
@@ -2200,12 +2201,12 @@ p:empty{
 }
 .form_tuvan .short_text h3{
          color: #fff;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0px 0px 20px 0px;
-    font-size: 28px;
-    line-height: 32px;
+         text-align: center;
+         text-transform: uppercase;
+         font-weight: 700;
+         margin: 0px 0px 15px 0px;
+         font-size: 28px;
+         line-height: 32px;
 }
 .form_tuvan .short_text p{
      color:#fff;
@@ -2275,7 +2276,7 @@ div.wpcf7-response-output{
     margin:10px auto !important ;
     text-align: center !important;
 }
-div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
+.form_suggest div.wpcf7-validation-errors, .form_suggest div.wpcf7-acceptance-missing , .form_suggest div.wpcf7-mail-sent-ok{
     border: 1px solid #fff !important;
     color: #fff;
     position: relative;
@@ -2602,6 +2603,7 @@ div.wpcf7-validation-errors, div.wpcf7-acceptance-missing{
  .tg_pagination {
      display: table;
      margin:10px auto 0px auto;
+     clear: both;
 }
  .tg_pagination span.current{
      color: #fff;

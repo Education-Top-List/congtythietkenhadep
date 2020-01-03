@@ -42,3 +42,21 @@ a:hover{
 	max-width: 120px;
 	height: 70px;
 }
+.list_info_building_adm{
+	display: table;
+	width: 100%;
+}
+.list_info_building_adm .list_group label{
+	min-width: 80px;
+	display: inline-block;
+}
+.list_info_building_adm .list_group {
+	margin:0px 50px 20px 0px;
+	float:left;
+}
+.list_info_building_adm .list_group input[type="text"]{
+	min-width: 400px;
+}
+#thong-tin-can-ho h2{
+	margin:0px 0px 20px 0px;
+}
